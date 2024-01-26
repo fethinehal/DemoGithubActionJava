@@ -19,7 +19,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3 # utilise l'action checkout pour récupérer le code source de GitHub (prépare le terrain)
+    - uses: actions/checkout@v4 # utilise l'action checkout pour récupérer le code source de GitHub (prépare le terrain)
     - name: Set up JDK 21  # juste le nom de l'étape
       uses: actions/setup-java@v3 # set up le jdk
       with:
@@ -29,14 +29,14 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Upload target folder report
-      uses : actions/upload-artifact@v2
+      uses : actions/upload-artifact@v4
       with: 
        name: rapport de tests
        path : ${{ github.workspace }}/target
         #  ${{ github.workspace }}/reports
 
     - name: Test Report
-      uses: dorny/test-reporter@v1
+      uses: dorny/test-reporter@v4
       if: success() || failure()    # run this step even if previous step failed
       with:
           name: JEST Tests            # Name of the check run which will be created
