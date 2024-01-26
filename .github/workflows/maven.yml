@@ -6,14 +6,13 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 name: Java CI with Maven
-permissions:
-  contents: read
-  checks: write
 on: # evenement a déclancher
   push: #a chaque fois que tu vas faire un push
     branches:
       - main 
-
+permissions:
+  contents: read
+  checks: write
 jobs:
   build:
     runs-on: ubuntu-latest
