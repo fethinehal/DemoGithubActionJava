@@ -12,14 +12,11 @@ permissions:
 on: # evenement a déclancher
   push: #a chaque fois que tu vas faire un push
     branches:
-      - main
-  
+      - main 
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 21
@@ -34,7 +31,7 @@ jobs:
       uses : action/upload-artifact@v3
       with : 
         name : rapport de tests
-          path :${{ github.workspace }}/target
+        path : ${{ github.workspace }}/target
            
       
          
